@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, type ReactNode } from "react";
 import { RootProvider } from "./contexts/RootProvider";
 import { Navbar } from "./components/common/Navbar";
 import { CartSidebar } from "./components/common/CartSidebar";
@@ -25,7 +25,7 @@ export default function App() {
     window.scrollTo(0, 0); 
   }, []);
 
-  const pages: Record<string, JSX.Element> = {
+  const pages: Record<string, ReactNode> = {
     home:     <HomePage go={go} setProduct={setProduct} />,
     shop:     <ShopPage go={go} setProduct={setProduct} />,
     product:  product ? <ProductPage product={product} go={go} setProduct={setProduct} /> : <HomePage go={go} setProduct={setProduct} />,
